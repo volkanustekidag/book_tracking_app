@@ -26,21 +26,22 @@ class _HomePageState extends State<HomePage> {
     SettingsPage()
   ];
 
-  int current = 0;
+  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(bottomNavigationBar:
         BlocBuilder<BottomNavigationBloc, BottomNavigationState>(
       builder: (context, state) {
         if (state is ChangedPage) {
-          current = state.newIndex;
+          currentIndex = state.newIndex;
           print(state.newIndex);
         }
         return BottomNavigationBar(
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.grey,
           backgroundColor: Color(0xff2d2d2d),
-          currentIndex: current,
+          currentIndex: currentIndex,
           onTap: (value) {
             BlocProvider.of<BottomNavigationBloc>(context)
                 .add(ChangeCurrentItemNavBar(value));
