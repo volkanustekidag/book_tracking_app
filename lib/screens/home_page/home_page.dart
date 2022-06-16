@@ -1,8 +1,10 @@
 import 'package:book_tracking/blocs/book_bloc/book_bloc.dart';
 import 'package:book_tracking/blocs/home_page_bottom_nav_bloc/bottom_navigation_bloc.dart';
+import 'package:book_tracking/const/constant.dart';
 import 'package:book_tracking/screens/book_list_page/book_list_page.dart';
 import 'package:book_tracking/screens/reading_list_page/reading_list_page.dart';
 import 'package:book_tracking/screens/settings_page/settings_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,7 +42,7 @@ class _HomePageState extends State<HomePage> {
         return BottomNavigationBar(
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.grey,
-          backgroundColor: Color(0xff2d2d2d),
+          backgroundColor: primaryColor,
           currentIndex: currentIndex,
           onTap: (value) {
             BlocProvider.of<BottomNavigationBloc>(context)

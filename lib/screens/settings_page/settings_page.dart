@@ -1,3 +1,4 @@
+import 'package:book_tracking/const/constant.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -16,15 +17,13 @@ class _SettingsPageState extends State<SettingsPage> {
         centerTitle: true,
         leading: Icon(
           Icons.menu,
-          color: Color(0xff2d2d2d),
+          color: primaryColor,
         ),
         elevation: 0,
         title: Text(
           "SETTİNGS",
           style: TextStyle(
-              color: Color(0xff2d2d2d),
-              fontWeight: FontWeight.w500,
-              fontSize: 18),
+              color: primaryColor, fontWeight: FontWeight.w500, fontSize: 18),
         ),
       ),
       body: Container(),

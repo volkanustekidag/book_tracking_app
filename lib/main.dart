@@ -5,7 +5,6 @@ import 'package:book_tracking/blocs/reading_list_bloc/reading_list_bloc.dart';
 import 'package:book_tracking/models/books.dart';
 import 'package:book_tracking/repositories/book_repository.dart';
 import 'package:book_tracking/screens/home_page/home_page.dart';
-import 'package:book_tracking/screens/reading_list_page/reading_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
