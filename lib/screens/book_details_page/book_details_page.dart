@@ -1,4 +1,5 @@
 import 'package:book_tracking/blocs/reading_list_bloc/reading_list_bloc.dart';
+import 'package:book_tracking/const/constant.dart';
 import 'package:book_tracking/models/books.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -63,36 +64,24 @@ class _BookDetailsState extends State<BookDetails> {
               },
             )
           ],
-          backgroundColor: Color(0xff2d2d2d),
+          backgroundColor: primaryColor,
           elevation: 0,
           backwardsCompatibility: false,
         ),
         body: Center(
           child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            color: Color(0xff2d2d2d),
+            width: getWidth(context, 1),
+            height: getHeight(context, 1),
+            color: primaryColor,
             child: Stack(
               alignment: Alignment.center,
               children: [
                 Positioned(
                   bottom: 0,
                   child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height / 1.5,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.3),
-                          blurRadius: 10,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(40),
-                        topRight: Radius.circular(40),
-                      ),
-                    ),
+                    width: getWidth(context, 1),
+                    height: getHeight(context, 0.65),
+                    decoration: detailsContainerDecoration,
                     child: Padding(
                       padding: const EdgeInsets.only(top: 70, left: 10),
                       child: ListView(
@@ -103,27 +92,22 @@ class _BookDetailsState extends State<BookDetails> {
                                 fontWeight: FontWeight.bold, fontSize: 20),
                           ),
                           Divider(color: Colors.transparent),
-                          Text("Author",
-                              style: TextStyle(color: Colors.black45)),
+                          Text("Author", style: detailsTitleTextStyle),
                           Text(book.author),
                           Divider(color: Colors.transparent),
-                          Text("Genre",
-                              style: TextStyle(color: Colors.black45)),
+                          Text("Genre", style: detailsTitleTextStyle),
                           Text(book.genre),
                           Divider(color: Colors.transparent),
-                          Text("Description",
-                              style: TextStyle(color: Colors.black45)),
+                          Text("Description", style: detailsTitleTextStyle),
                           Text(book.description),
                           Divider(color: Colors.transparent),
-                          Text("Isbn", style: TextStyle(color: Colors.black45)),
+                          Text("Isbn", style: detailsTitleTextStyle),
                           Text(book.isbn),
                           Divider(color: Colors.transparent),
-                          Text("Published",
-                              style: TextStyle(color: Colors.black45)),
+                          Text("Published", style: detailsTitleTextStyle),
                           Text(book.published),
                           Divider(color: Colors.transparent),
-                          Text("Publisher",
-                              style: TextStyle(color: Colors.black45)),
+                          Text("Publisher", style: detailsTitleTextStyle),
                           Text(book.publisher),
                         ],
                       ),
