@@ -12,11 +12,6 @@ class BookRequest extends BookEvent {
   List<Object> get props => [];
 }
 
-class BookRefresh extends BookEvent {
-  @override
-  List<Object> get props => [];
-}
-
 class BookSearch extends BookEvent {
   final String query;
 
