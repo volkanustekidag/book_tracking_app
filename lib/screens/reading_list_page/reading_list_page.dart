@@ -1,4 +1,5 @@
 import 'package:book_tracking/blocs/reading_list_bloc/reading_list_bloc.dart';
+import 'package:book_tracking/components/app_bar.dart';
 import 'package:book_tracking/models/books.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,27 +13,10 @@ class ReadingListPage extends StatefulWidget {
 }
 
 class _ReadingListPageState extends State<ReadingListPage> {
-  List<String> item = ["Clients", "Designer", "Developer", "Director", "Owner"];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          centerTitle: true,
-          leading: Icon(
-            Icons.menu,
-            color: Color(0xff2d2d2d),
-          ),
-          elevation: 0,
-          title: Text(
-            "READİNG LİST",
-            style: TextStyle(
-                color: Color(0xff2d2d2d),
-                fontWeight: FontWeight.w500,
-                fontSize: 18),
-          ),
-        ),
+        appBar: appbarBuild("READİNG LİST"),
         body: BlocBuilder<ReadingListBloc, ReadingListState>(
           builder: (context, state) {
             if (state is Loading) {
@@ -43,42 +27,7 @@ class _ReadingListPageState extends State<ReadingListPage> {
             if (state is UpdatedList) {
               return ReorderableListView(
                 children: <Widget>[
-                  for (Book items in state.readingList)
-                    GestureDetector(
-                      key: ValueKey(items),
-                      onTap: () {},
-                      child: Slidable(
-                        key: ValueKey(items),
-                        endActionPane: ActionPane(
-                          motion: ScrollMotion(),
-                          children: [
-                            SlidableAction(
-                              onPressed: (context) {
-                                BlocProvider.of<ReadingListBloc>(context)
-                                    .add(DeleteBookEvent(book: items));
-                              },
-                              backgroundColor: Color(0xFFFE4A49),
-                              foregroundColor: Colors.white,
-                              icon: Icons.delete,
-                              label: 'Delete',
-                            ),
-                          ],
-                        ),
-                        child: Card(
-                          elevation: 2,
-                          child: ListTile(
-                              title: Column(
-                                children: [
-                                  Text(items.title),
-                                  Text(items.author),
-                                ],
-                              ),
-                              leading: ClipRRect(
-                                  borderRadius: BorderRadius.circular(50),
-                                  child: Image.network(items.image))),
-                        ),
-                      ),
-                    ),
+                  for (Book items in state.readingList) itemBuild(items),
                 ],
                 onReorder: reorderData,
               );
@@ -86,6 +35,44 @@ class _ReadingListPageState extends State<ReadingListPage> {
             return Container();
           },
         ));
+  }
+
+  GestureDetector itemBuild(Book items) {
+    return GestureDetector(
+      key: ValueKey(items),
+      onTap: () {},
+      child: Slidable(
+        key: ValueKey(items),
+        endActionPane: ActionPane(
+          motion: ScrollMotion(),
+          children: [
+            SlidableAction(
+              onPressed: (context) {
+                BlocProvider.of<ReadingListBloc>(context)
+                    .add(DeleteBookEvent(book: items));
+              },
+              backgroundColor: Color(0xFFFE4A49),
+              foregroundColor: Colors.white,
+              icon: Icons.delete,
+              label: 'Delete',
+            ),
+          ],
+        ),
+        child: Card(
+          elevation: 2,
+          child: ListTile(
+              title: Column(
+                children: [
+                  Text(items.title),
+                  Text(items.author),
+                ],
+              ),
+              leading: ClipRRect(
+                  borderRadius: BorderRadius.circular(50),
+                  child: Image.network(items.image))),
+        ),
+      ),
+    );
   }
 
   void reorderData(int oldindex, int newindex) {
