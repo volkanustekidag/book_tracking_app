@@ -9,21 +9,6 @@ abstract class BottomNavigationState extends Equatable {
 
 class BottomNavgationInitial extends BottomNavigationState {}
 
-class BookListPageState extends BottomNavigationState {
-  @override
-  List<Object> get props => [];
-}
-
-class ReadingListPageState extends BottomNavigationState {
-  @override
-  List<Object> get props => [];
-}
-
-class SettingsPageState extends BottomNavigationState {
-  @override
-  List<Object> get props => [];
-}
-
 // ignore: must_be_immutable
 class ChangedPage extends BottomNavigationState {
   int newIndex;
