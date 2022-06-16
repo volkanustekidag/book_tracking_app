@@ -1,4 +1,5 @@
 import 'package:book_tracking/blocs/book_bloc/book_bloc.dart';
+import 'package:book_tracking/components/app_bar.dart';
 import 'package:book_tracking/screens/book_details_page/book_details_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -17,22 +18,7 @@ class _BookListPageState extends State<BookListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        leading: Icon(
-          Icons.menu,
-          color: Color(0xff2d2d2d),
-        ),
-        elevation: 0,
-        title: Text(
-          "BOOKTRACKİNG",
-          style: TextStyle(
-              color: Color(0xff2d2d2d),
-              fontWeight: FontWeight.w500,
-              fontSize: 18),
-        ),
-      ),
+      appBar: appbarBuild("BOOKTRACKİNG"),
       body: Container(
         color: Colors.white,
         padding: EdgeInsets.all(15),
