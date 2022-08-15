@@ -1,7 +1,18 @@
-# book_tracking
+# Book Tracking
 
-A new Flutter project.
+A simple application where you can track books and check your list.
 
-## Getting Started
+## Plugins
 
-![video-to-gif-converter](https://user-images.githubusercontent.com/56761000/174029493-6a4b1251-07c5-467d-a36a-a9723d247992.gif)
+[flutter_bloc](https://pub.dev/packages/flutter_bloc) <br>
+[equatable](https://pub.dev/packages/equatable) <br>
+[http](https://pub.dev/packages/http) <br>
+[sizer](https://pub.dev/packages/sizer) <br>
+
+## API
+
+[FakeRapı](https://fakerapi.it/api/v1/books?_quantity=100)
+
+## Screenshots
+
+<img src="https://github.com/volkanustekidag/book_tracking_app/blob/main/assets/screenshots/Screenshot_1660605744.png" width="200"/>   <img src="https://github.com/volkanustekidag/book_tracking_app/blob/main/assets/screenshots/Screenshot_1660605755.png" width="200"/>         <img src="https://github.com/volkanustekidag/book_tracking_app/blob/main/assets/screenshots/Screenshot_1660605748.png" width="200"/>        
