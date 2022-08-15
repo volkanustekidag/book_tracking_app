@@ -3,6 +3,7 @@ import 'package:book_tracking/const/constant.dart';
 import 'package:book_tracking/models/books.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sizer/sizer.dart';
 
 class BookDetails extends StatefulWidget {
   final Book book;
@@ -89,7 +90,7 @@ class _BookDetailsState extends State<BookDetails> {
                           Text(
                             book.title,
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
+                                fontWeight: FontWeight.bold, fontSize: 15.sp),
                           ),
                           Divider(color: Colors.transparent),
                           Text("Author", style: detailsTitleTextStyle),
@@ -131,7 +132,7 @@ class _BookDetailsState extends State<BookDetails> {
                         borderRadius: BorderRadius.circular(20),
                         child: Image.network(
                           book.image,
-                          height: 230,
+                          height: 30.h,
                         ),
                       ),
                     ),
