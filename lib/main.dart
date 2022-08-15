@@ -9,6 +9,7 @@ import 'package:book_tracking/screens/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
+import 'package:sizer/sizer.dart';
 
 void main() {
   final BookRepository bookRepository =
@@ -47,14 +48,16 @@ class MyApp extends StatelessWidget {
           create: (context) => BookSearchBloc(),
         ),
       ],
-      child: MaterialApp(
-        title: 'Book Tracking',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: HomePage(),
-      ),
+      child: Sizer(builder: (context, orientation, deviceType) {
+        return MaterialApp(
+          title: 'Book Tracking',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: HomePage(),
+        );
+      }),
     );
   }
 }
